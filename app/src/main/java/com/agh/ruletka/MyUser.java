@@ -1,9 +1,5 @@
 package com.agh.ruletka;
 
-/**
- * Created by Damian on 2017-06-07.
- */
-
 public class MyUser {
 
     //obiekt mojego uzytkownika
