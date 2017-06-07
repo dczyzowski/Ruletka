@@ -6,6 +6,8 @@ package com.agh.ruletka;
 
 public class MyUser {
 
+    //obiekt mojego uzytkownika
+
     String mName;
     int mMoney;
     int iloscLosowan;

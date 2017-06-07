@@ -16,6 +16,8 @@ import java.util.ArrayList;
 
 public class UserScoresAdapter extends ArrayAdapter<MyUser> {
 
+    //adapter do inicjalizacji listy uzytkownikow i ich wynikow
+
     LayoutInflater mInflater;
     ArrayList<MyUser> myUsers;
 

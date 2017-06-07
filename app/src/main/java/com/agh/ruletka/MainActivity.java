@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
     GridAdapter adapter;
 
     MyUser user;
-
+    //przyciski
     Button first; //first 12
     Button second; //second 12
     Button third; //third 12
@@ -45,6 +45,7 @@ public class MainActivity extends Activity {
     Button start;
     Button zero;
 
+    //zmienne
     int obstawiles = 0;
     int redBet = 0;
     int blackBet = 0;
@@ -57,14 +58,18 @@ public class MainActivity extends Activity {
     int firstHalfBet = 0;
     int secondHalfBet = 0;
 
+
+    //baza danych inicjalizacja
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("games");
 
-
+    // lista moich obstawien
     ArrayList<BetModel> myBets;
 
+    //lista osob i ich wynikow pobierana z bazy zanych
     ArrayList<MyUser> usersScores;
 
+    //adapter sluzy do adaptowania listy na widok o okreslonej ilosci elementow
     UserScoresAdapter scoreAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,12 +77,16 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
 
-
+        // tabela informacyjna
         infoTabele = (TextView) findViewById(R.id.tabele);
+
+        //inicjalizacja listy
         models = new ArrayList<>(36);
         myBets = new ArrayList<>();
         setNewModels();
 
+
+        //dialog wyswietla sie aby utorzyc nowego uzytkownika
         if(user == null){
             final EditText input = new EditText(MainActivity.this);
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
@@ -111,6 +120,7 @@ public class MainActivity extends Activity {
         else
             tabeleRefresh();
 
+        //przyciski
         first = (Button) findViewById(R.id.first);
         second = (Button) findViewById(R.id.second);
         third = (Button) findViewById(R.id.third);
@@ -121,9 +131,11 @@ public class MainActivity extends Activity {
         start = (Button) findViewById(R.id.start);
         zero = (Button) findViewById(R.id.zero);
 
+        //adapter listy graczy i ich wynikow
         usersScores = new ArrayList<>();
         scoreAdapter = new UserScoresAdapter(getBaseContext(), R.layout.score_element, usersScores);
 
+        //przyciski
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -310,8 +322,9 @@ public class MainActivity extends Activity {
 
     }
 
+    //zerujemy wartości
     private void resetValues() {
-        //zerujemy wartości
+
 
         secondHalfBet = 0;
         secondHalf.setText("19-36\n0$");
@@ -336,17 +349,20 @@ public class MainActivity extends Activity {
         adapter.notifyDataSetChanged();
     }
 
+    //odswierza nam tabele wynikow
     private void tabeleRefresh() {
         infoTabele.setText(user.getName() + "\nPortfel: " + user.getMoney() +
                 "$\nObstawileś: " + obstawiles + "$\n");
     }
 
+    //odswierza nam tabele wynikow
     private void tabeleRefresh(int number) {
         infoTabele.setText(user.getName() + "\nPortfel: " + user.getMoney() +
                 "$\nObstawileś: " + obstawiles + "$\nWYLOSOWANO: " + number);
     }
 
 
+    //metoda generuje kolory
     void setNewModels(){
         models.clear();
         for (int i = 1; i < 37 ; i++ ){

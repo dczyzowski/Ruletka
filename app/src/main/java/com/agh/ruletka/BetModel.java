@@ -4,12 +4,10 @@ import android.content.Intent;
 import android.support.annotation.ColorRes;
 import android.support.annotation.LayoutRes;
 
-/**
- * Created by Damian on 2017-06-07.
- */
-
 public class BetModel {
 
+
+    //obiekt obstawiania
     int mMoneyBet;
     int mPosition;
     Integer mColor;

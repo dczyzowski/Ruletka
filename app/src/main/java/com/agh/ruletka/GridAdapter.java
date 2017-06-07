@@ -19,6 +19,8 @@ import java.util.ArrayList;
 
 public class GridAdapter extends ArrayAdapter<BetModel> {
 
+
+    //inicjalizacja adaptera ktory twozy nam plansze do gry
     LayoutInflater mInflater;
     ArrayList<BetModel> betModels;
 
